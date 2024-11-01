@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 라디오 타입: 여러 항목중 하나만 선택 -->
+    <form action="#" method="get">
+      <!-- label 과 input의 값이 같으면 상호작용을 한다 -->
+      <label for="male">남성</label>
+      <input type="radio" name="gender" id="male" value="남자" />
+      <label for="female">여성</label>
+      <input type="radio" name="gender" id="female" value="여자" />
+    </form>
+    <!-- 체크 박스 여러 항목 중 여러개를 선택 -->
+    <form action="#">
+      <label for="apple">사과</label>
+      <input type="checkbox" name="apple" id="apple" value="apple" />
+      <label for="banana">바나나</label>
+      <input type="checkbox" name="banana" id="banana" value="banana" />
+      <label for="melon">멜론</label>
+      <input type="checkbox" name="melon" id="melon" value="melon" />
+    </form>
+
+    <!-- fieldset 과 legend 태그 -->
+    <form action="#">
+      <fieldset>
+        <legend>기본정보</legend>
+        <p>
+          <label for="userId">아이디</label>
+          <input type="text" id="userId" />
+        </p>
+        <p>
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" />
+        </p>
+        <p>
+          <label for="desc">내용</label>
+          <textarea name="desc" id="desc"></textarea>
+        </p>
+      </fieldset>
+    </form>
+
+    <!-- 콤보 박스 사용하기 -->
+    <form action="#">
+      <fieldset>
+        <legend>개인정보 입력</legend>
+        <label for="city">지역</label>
+        <select name="city" id="city">
+          <optgroup label="서울시">
+            <option value="강북구">강북구</option>
+            <option value="강남구">강남구</option>
+            <option value="서초구">서초구</option>
+          </optgroup>
+          <optgroup label="경기도 성남시">
+            <option value="중원구">중원구</option>
+            <option value="분당구">분당구</option>
+          </optgroup>
+        </select>
+        <input type="submit" value="등록" />
+      </fieldset>
+    </form>
+
+    <input type="submit" name="" id="" />
+    <input type="reset" name="" id="" />
+    <!-- 버튼 태그를 사용해 버튼 만들기 -->
+    <form action="https://facebook.com">
+      <button type="submit">
+        <img src="./images/facebook.png" alt="페이스북아이콘" />
+        페이스북 등록
+      </button>
+    </form>
+    <input type="text" placeholder="비활성화 되었습니다" disabled />
+    <input type="text" placeholder="읽기 전용입니다." disabled />
+    <input type="text" placeholder="필수 입력 창입니다" required />
+
+    <body>
+      <form action="#">
+        <fieldset>
+          <legend>좋아하는 과일</legend>
+          <input type="checkbox" id="banana" name="banana" value="banana" />
+          <label for="banana">banana</label><br />
+          <input type="checkbox" id="apple" name="apple" value="apple" />
+          <label for="apple">apple</label><br />
+          <input
+            type="checkbox"
+            id="orange"
+            name="orange"
+            value="orange"
+            checked
+          />
+          <label for="orange">orange</label><br />
+        </fieldset>
+      </form>
+    </body>
+  </body>
+</html>
+.

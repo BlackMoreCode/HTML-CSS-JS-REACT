@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 520px;
+        border: 1px solid black;
+        padding: 20px 40px;
+        margin: 20px auto;
+      }
+      body {
+        margin: 0;
+      }
+      p {
+        font-weight: bold;
+      }
+      textarea {
+        width: 520px;
+        height: 150px;
+      }
+      .info,
+      .jobarea {
+        margin: 0 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>프론트엔드 개발자 지원서</h1>
+      <p>
+        HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.
+      </p>
+      <hr />
+      <p>개인정보</p>
+      <div class="info">
+        <label for="name">이름</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="공백 없이 입력하세요."
+        />
+      </div>
+      <div class="info">
+        <label for="contact">연락처</label>
+        <input type="tel" id="contact" name="contact" />
+      </div>
+      <p>지원 분야</p>
+      <div class="jobarea">
+        <form action="#" method="get">
+          <div>
+            <label for="web">웹퍼블리싱</label>
+            <input type="radio" name="job" id="web" value="웹퍼블리싱" />
+          </div>
+          <div>
+            <label for="frontend">웹 프론트엔드</label>
+            <input
+              type="radio"
+              name="job"
+              id="frontend"
+              value="웹 프론트엔드"
+            />
+          </div>
+          <div>
+            <label for="mobileapp">모바일 앱</label>
+            <input type="radio" name="job" id="mobileapp" value="모바일 앱" />
+          </div>
+        </form>
+      </div>
+      <div>
+        <p>지원동기</p>
+        <div>
+          <label for="desc"></label>
+          <textarea name="desc" id="desc"></textarea>
+        </div>
+        <div>
+          <input type="submit" value="접수하기" />
+          <input type="reset" value="다시쓰기" />
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

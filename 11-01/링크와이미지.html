@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    a {
+      /* 인라인 속성과 블록 속성을 함께 가진다 */
+      display: inline-block;
+      text-decoration: none;
+      background-color: darkslategray;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    a > img {
+      width: 300px;
+      height: 80px;
+    }
+  </style>
+  <body>
+    <!-- a 태그는 HTML에서 내부나 외부 링크를 생성 -->
+    <a href="https://www.google.com" target="_blank">
+      <img src="images/googlelogo.png" alt="구글 로고" />
+    </a>
+    <a href="https://naver.com" target="_blank">네이버로 이동</a>
+    <hr />
+    <!-- 이미지 태그 -->
+    <img src="images/bear.png" alt="곰탱이" />
+
+    <p>여기서부터는 위험하니까 <em> 절대로 </em> 지나가지 마세요</p>
+  </body>
+</html>

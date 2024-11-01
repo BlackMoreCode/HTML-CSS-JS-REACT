@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .movie {
+      background-color: orange;
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+    .tv {
+      background-color: royalblue;
+      padding-left: 20px;
+    }
+    p {
+      margin: 0;
+    }
+    span {
+      color: red;
+      font-weight: bold;
+      background-color: antiquewhite;
+      display: block;
+    }
+    ol,
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <body>
+    <!-- HTML의 모든 요소는 display 속성 값을 가진다 -->
+    <!-- display 소성은 크기 block과 inline으로 나누어짐 -->
+    <!-- block 요소는 해당 라인의 모든 너비를 차지 함 -->
+    <!-- p, div, h, ul, ol, form -->
+    <div class="movie">
+      <h1>영화 소개</h1>
+      <p><span>영화</span>를 소개하는 페이지</p>
+    </div>
+    <div class="tv">
+      <h1>TV 프로그램 소개</h1>
+      <p>TV 프로그램을 소개하는 페이지 입니다.</p>
+    </div>
+
+    <!-- 리스트 만들기 : ul. ol -->
+    <h3>판매 중인 과일 목록</h3>
+    <ol>
+      <li>사과</li>
+      <li>멜론</li>
+      <li>바나나</li>
+    </ol>
+    <dl>
+      <dt>HTML</dt>
+      <dd>
+        HTML은 Hyper Text Markup Language의 약자로 웹 문서의 구조를 설계하기
+        위한 목적으로 개발된 언어입니다.
+      </dd>
+      <dt>CSS</dt>
+      <dd>
+        CSS는 Cascading Style Sheets의 약자로 웹 문서를 꾸미기 위한 목적으로
+        개발된 언어입니다.
+      </dd>
+    </dl>
+  </body>
+</html>
