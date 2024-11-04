@@ -1,0 +1,283 @@
+/*Roboto 폰트를 구글 폰트로 부터 가지고 온다. 400/500/600/700 사이즈 구해온다 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+
+/*전체적으로 적용할 세팅*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+/* 배경 검은색 */
+body {
+  background-color: black;
+  overflow: scroll;
+  color: grey;
+}
+p {
+  color: white;
+}
+
+/* body:before에서 before 는 가상요소 (pseudo-element)다. 가상 클래스처럼 선택자(selector)에 추가. 존재하지 않는 요소를 존재하는것처럼 부여? */
+/* before 는 실제 내용 바로 앞에서 생성되는 자식요소..? */
+body.image::before {
+  z-index: 1;
+  opacity: 1;
+}
+body::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5; /* 50% 투명도 */
+  width: 100%;
+  height: 100%;
+  background-image: url("bg.jpg"); /* 바닐라 코드측에서 준비한 사진 */
+  background-repeat: no-repeat; /* 반복 없음*/
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100% 100%; /* 상하좌우 100$ */
+  padding-bottom: 250px; /* Adjust this to match the footer height */
+}
+nav {
+  position: fixed;
+  padding: 25px 170px;
+  z-index: 1;
+}
+
+.image {
+  margin-left: 200px;
+  opacity: 1;
+}
+
+.form-wrapper {
+  position: absolute; /* 다른 ancesotor 없으면 viewport의 포지션에 기반한다 */
+  left: 50%;
+  top: 50%;
+  border-radius: 4px; /* margin 하고 padding 사이의 border의 두께?*/
+  padding: 70px;
+  width: 450px;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* 중앙에 맞추기 위해서 wrapper 를 위로, 왼쪽으로 그 폭의 50%만큼 옮긴다 */
+  background: rgba(0, 0, 0, 0.75); /* 배경을 약간 불투명한 검은색으로 */
+  min-height: 60vh; /* 최소 높이를 뷰포트의 60%로 */
+  margin-bottom: 10px;
+}
+
+.form-wrapper small,
+.form-wrapper p {
+  position: absolute; /* Position the p element */
+  bottom: 15px; /* Adjust as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  color: #b3b3b3;
+  width: 80%;
+  text-align: center;
+}
+.form-wrapper small {
+  margin-top: 15px;
+}
+
+.form-wrapper h2 {
+  color: #fff;
+  font-size: 2rem; /*루트 폰트 사이즈 x2; 1rem 이면 1x루트 폰트 사이즈 */
+}
+
+.form-wrapper form {
+  margin: 25px 0 65px; /* 좌우는 여백 없고, 위에 25픽셀 아래에 65픽셀 */
+}
+
+form .form-control {
+  /* form 요소 내부에 있는 .form-control "만" 해당 스타일을 적용한다 */
+  height: 50px;
+  position: relative;
+  margin-bottom: 16px; /* 마진 밑에 16픽셀 추가 */
+  background-color: transparent;
+}
+
+.form-control input {
+  /* form-control 내부에서 input을 전부 선택, 밑의 스타일을 입힌다? */
+  height: 100%;
+  width: 100%;
+  background: #33333338;
+  border: solid 1px #707070;
+  outline: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0 20px;
+}
+.signup {
+  width: 100%;
+  display: block;
+  align-items: flex-end;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.signup p {
+  margin-right: 5px;
+  font-size: 14px;
+  color: white;
+}
+.more {
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 1.1em;
+}
+
+.more a {
+  color: rgb(17, 108, 228);
+}
+
+.more a:hover,
+.signup a:hover {
+  text-decoration: underline;
+}
+
+.form-control input:is(:focus, :valid) {
+  background: rgba(0, 0, 0, 0.123);
+  padding: 16px 20px 0;
+}
+.form-control label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  color: #8c8c8c;
+  transition: all 0.1s ease;
+}
+.form-control input:is(:focus, :valid) ~ label {
+  font-size: 0.75rem;
+  transform: translateY(-130%);
+}
+form button {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  background: #e50914;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  margin: 10px 0 10px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+#logincode {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  background: #4e4e4e83;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  margin: 10px 0 10px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+form button:hover {
+  background: #c40812;
+}
+
+form #logincode:hover {
+  background: #4e4e4e4f;
+}
+
+.form-wrapper a {
+  text-decoration: none;
+}
+.form-wrapper a:hover {
+  text-decoration: underline;
+}
+.form-wrapper :where(label, small, a) {
+  color: #ffffff;
+}
+form .form-help {
+  display: flex;
+  justify-content: space-between;
+}
+form .remember-me {
+  display: flex;
+  font-size: 16px;
+}
+form .remember-me input {
+  margin-right: 5px;
+  color: #b3b3b3;
+}
+
+.form-wrapper p a {
+  color: #fff;
+}
+
+.form-wrapper small a {
+  color: #0071eb;
+}
+
+/* ------ FOOTER ------- */
+
+/* Footer */
+footer {
+  position: relative;
+  margin-top: 820px;
+  bottom: 0;
+  width: 100%;
+  height: 22rem;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 20px 10%;
+  box-sizing: border-box;
+  z-index: 10; /* Ensures it stays on top */
+}
+
+#ftr-content {
+  font-size: 12px;
+  margin: 0 12%;
+}
+
+.ftr-content a {
+  color: #999;
+}
+
+.ftr-content a:hover {
+  text-decoration: underline;
+}
+
+.contact {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.contact p {
+  color: #929292;
+}
+
+.ftr {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.select select {
+  width: 100px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  padding-left: 10px;
+  background: #33333373;
+}
+
+.select p {
+  color: #929292;
+}
