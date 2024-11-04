@@ -1,0 +1,590 @@
+/*Roboto 폰트를 구글 폰트로 부터 가지고 온다. 400/500/600/700 사이즈 구해온다 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+
+/*전체적으로 적용할 세팅*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+
+}
+
+.header{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8),rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.8)100%),
+    url(/넷플릭스_홈페이지클론/images/header-image.jpg);
+    background-size: cover;
+    background-position: center;
+    /* padding: 8px 10%;  */
+    position: relative;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    
+}
+
+.logo{
+   width: 150px;
+   cursor: pointer;
+   
+}
+
+nav button{
+    display: inline-block;
+    background: #db0001;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid  white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-left: 10px;
+    padding: 7px 20px;
+    outline: white;
+    width: 120px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+
+nav button a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+nav .language_btn{
+    display: inline-flex;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    text-align: left;  
+    border: 1px solid  white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    outline: white;
+    width: 120px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+nav .language_btn::after{
+    text-align: right;
+    content: "▾";
+    font-size: 1rem;
+    position: relative;
+    margin-left: 18px;
+}
+
+
+
+
+
+
+
+
+.img-col img{
+    display: block;
+    width: 90%;
+    margin: auto;
+    
+}
+
+
+.features h2{
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+.question{
+    padding:  10px 12%;
+    text-align: center;
+    font-size: 20px;
+    border-top: 6px solid #303030;
+    color: #fff;
+}
+
+
+.question h2{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+
+.ques_accordion{
+     margin: 60px auto; 
+     width: 100%; 
+     max-width: 1800px; 
+
+}
+.ques_accordion li {
+    list-style: none;  
+    width: 100%;
+     padding: 5px; 
+} 
+
+.ques_accordion li label {
+    display: flex;
+     align-items: center; 
+    position: relative;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    background: #303030;
+     margin-bottom: 4px; 
+
+}
+label::after{
+    content: "+";
+    font-size: 34px;
+    position: absolute;
+    right: 22px;
+    transition: transform 0.5s;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.ques_accordion .ques_content{
+    background: #303030;
+    text-align: left;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s, padding 0.4s;
+}
+
+.ques_accordion input[type="radio"]:checked + label + .ques_content{
+    max-height: 600px;
+    padding: 30px 20px;
+}
+
+.ques_accordion input[type="radio"]:checked +label::after{
+    transform: rotate(130deg);
+}
+
+.question .email-signup {
+    border: 2px solid #666161;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 80vw;
+    overflow: hidden;
+}
+.question .email-signup input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    margin: 20px;
+    background: none;
+    font-size: 18px;
+    color: rgb(255,255,255);
+}
+
+.question .email-signup button{
+    background: #db0001;
+    border: 0;
+    bottom: 0;
+    margin: 0;
+    width: 20%;
+    font-size: 22px;
+    border: 1px solid #666161;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    padding: 20px 3%;
+}
+
+
+
+ .question small{
+    font-size: 14px;
+} 
+
+/* ---------------footet------------------- */
+
+.netflix_footer{
+    padding: 50px 15% 10px;
+    border-top: 6px solid #303030;
+    color: #777;
+
+}
+
+.netflix_footer h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.netflix_footer .col{
+     flex-basis: 25%;  
+     flex-grow: 1; 
+    margin-bottom: 20px;
+}
+
+
+.netflix_footer .col a{
+    display: block;
+    text-decoration: underline;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.netflix_footer .row{
+     align-items: flex-start;
+     padding: 10px 0;   
+     border-top: none;
+}
+
+.netflix_footer .language_btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    text-align: left; 
+    border: 1px solid  white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    outline: white;
+    width: 120px;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+
+.netflix_footer .language_btn::after{
+    text-align: right;
+    content: "▾";
+    font-size: 1rem;
+    position: relative;
+    margin-left: 18px;
+    
+}
+
+.netflix_footer .language_btn:checked + .language_btn::after{
+    transform: rotate(180deg);
+}
+
+.copyright-txt{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #b1afaf;
+}
+
+.netflix_info{
+    font-size: 10px;
+    margin-top: 20px;
+    color: #b1afaf;
+}
+
+.gonjung{
+    font-size: 10px;
+    margin-bottom: 14px;
+    color: #b1afaf;
+}
+
+
+/* -------------------미디어 쿼리------------------- */
+@media only screen and (min-width: 360px) and (max-width: 720px) {
+    /* .header-content 스타일 수정 */
+    .header-content {
+        position: unset;
+        transform: none;
+        text-align: center;
+        margin-top: 200px;
+    }
+
+    .header-content h1 {
+        font-size: 36px;
+        line-height: 36px;
+        font-weight: 900;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .header-content h3 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 30px 10px;
+    }
+
+    .header-content p{
+        font-size: 18px;
+        font-weight: 400;
+        margin: 10px 10px;
+
+    }
+
+    /* .logo 스타일 수정 */
+    .logo {
+        width: 80px;
+    }
+
+    /* nav button 스타일 수정 */
+    nav button {
+        display: inline-block;
+        padding: 0px 4px;
+        font-size: 12px;
+        width: 25vw;
+        height: 10vw;
+    }
+
+    /* nav .language_btn 스타일 수정 */
+    nav .language_btn {
+        padding: 0px 4px;
+        font-size: 12px;
+        width: 26vw;
+        height: 10vw;
+        text-align: center;
+        display: inline-block;
+        
+    }
+
+    /* .email-signup 스타일 수정 */
+    .email-signup {
+        border: 2px solid #666161;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 30px;
+        width: 94%;
+        overflow: hidden;
+    }
+
+    .email-signup input {
+        flex: 1;
+        border: 0;
+        outline: 0;
+        margin: 20px;
+        background: none;
+        font-size: 18px;
+        color: rgb(255,255,255);
+    }
+
+    .email-signup button {
+        background: #db0001;
+        border: 0;
+        font-size: 12px;
+        width: 99%;
+        cursor: pointer;
+        color: #fff;
+        padding: 20px 20px;
+    }
+
+    /* .features 스타일 수정 */
+    .features {
+        padding: 20px 10%;
+        font-size: 18px;
+    }
+
+    /* .row, .text-col, .img-col, .img-col img 스타일 수정 */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+
+    .text-col, .img-col {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .img-col img {
+        width: 100%;
+    }
+
+
+    .download_container {
+        position: absolute;
+    }
+    
+     .download_container img {
+        width: 100%;
+        height: 100%;
+    }  
+    
+    .download_animation_container {
+        display: grid;
+        grid-template-columns: 4rem 1fr 5rem;
+        /* display: block; */
+        word-wrap: break-word;
+        width: 65%;  
+        height: 24%;%; 
+         padding: 1rem; 
+        align-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.25);
+        border-radius: 1rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 14%;
+        background: black;
+    }
+  
+    .download_animation_container .poster {
+      height: 100%;
+      
+    }
+    
+    .download_animation_container .download_gif {
+        height: 80%;
+    }
+    
+    .download_animation_container .text_container .title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .download_animation_container .text_container .downloading {
+        font-size: 0.8rem;
+        color: #0071eb;
+    }
+    
+    .download_animation_container .text_container {
+        padding-left: 2rem;
+    } 
+    
+
+    
+
+    /* .features h2 스타일 수정 */
+    .features h2 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    /* .features p 스타일 수정 */
+    .features p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* .question 스타일 수정 */
+    .question {
+        padding: 10px 10%;
+        font-size: 20px;
+    }
+
+    /* .question h2 스타일 수정 */
+    .question h2 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    /* .ques_accordion 스타일 수정 */
+    .ques_accordion {
+        margin: 20px auto;
+        max-width: 100%;
+    }
+
+    .ques_accordion li {
+        list-style: none;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .ques_accordion li label {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        padding: 20px;
+        font-size: 14px;
+        font-weight: 700;
+        background: #303030;
+        margin-bottom: 4px;
+    }
+
+    label::after {
+        content: "+";
+        font-size: 22px;
+        position: absolute;
+        right: 22px;
+        transition: transform 0.5s;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .ques_accordion .ques_content {
+        background: #303030;
+        text-align: left;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s, padding 0.4s;
+    }
+
+    .ques_accordion input[type="radio"]:checked + label + .ques_content {
+        max-height: 600px;
+        padding: 30px 20px;
+    }
+
+    .ques_accordion input[type="radio"]:checked + label::after {
+        transform: rotate(130deg);
+    }
+
+    /* .netflix_footer 스타일 수정 */
+    .netflix_footer {
+        padding: 20px 10px;
+        border-top: 6px solid #303030;
+        color: #777;
+    }
+
+    .netflix_footer h2 {
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .netflix_footer .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .netflix_footer .col {
+        flex-basis: 50%;
+        flex-grow: 1;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+    .question .email-signup input {
+        flex: 1;
+        border: 0;
+        outline: 0;
+        margin: 10px;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .question .email-signup button {
+        background: #db0001;
+        border: 0;
+        font-size: 12px;
+        cursor: pointer;
+        color: #fff;
+        padding: 20px 20px;
+    }
