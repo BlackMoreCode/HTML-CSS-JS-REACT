@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 자식 선택자 : > 직계 자식으로 모두 선택 */
+      .box > p {
+        color: red;
+      }
+      h1 + h2 {
+        color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>자식 1번</p>
+      <div>
+        <p>손자 1번</p>
+        <p>손자 2번</p>
+        <span>손자 3번</span>
+      </div>
+      <p>자식 2번</p>
+    </div>
+    <h1>제목 1번</h1>
+    <h2>제목 2번</h2>
+    <h3>제목 3번</h3>
+  </body>
+</html>
