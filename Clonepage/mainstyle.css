@@ -134,7 +134,7 @@ nav .language_btn::after {
 }
 
 .popular-head h1 {
-  margin-right: auto; /* Ensures h1 stays on the left */
+  margin-left: 11%;
 }
 
 .popular-head nav {
@@ -258,14 +258,6 @@ input[type="radio"] {
   margin-bottom: 20px;
 }
 
-.netflix_footer .col a {
-  display: block;
-  text-decoration: underline;
-  color: #777;
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
 .netflix_footer .row {
   align-items: flex-start;
   list-style-type: disc;
@@ -282,6 +274,13 @@ input[type="radio"] {
 
 .netflix_footer .row table td {
   padding: 10px 80px;
+}
+
+.netflix_footer .row table td a {
+  text-decoration: underline;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 12px;
 }
 
 .netflix_footer .row table td:first-child {
