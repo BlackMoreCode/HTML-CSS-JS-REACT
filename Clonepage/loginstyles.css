@@ -1,28 +1,32 @@
-/*Roboto 폰트를 구글 폰트로 부터 가지고 온다. 400/500/600/700 사이즈 구해온다 */
+/* Roboto 폰트를 구글 폰트로 부터 가지고 온다. 400/500/600/700 사이즈 구해온다 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
 
-/*전체적으로 적용할 세팅*/
+/* 전체적으로 적용할 세팅 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
 /* 배경 검은색 */
 body {
   background-color: black;
-  overflow: scroll;
   color: grey;
+
+  /* Flexbox 설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
 }
+
 p {
   color: white;
 }
 
-/* body:before에서 before 는 가상요소 (pseudo-element)다. 가상 클래스처럼 선택자(selector)에 추가. 존재하지 않는 요소를 존재하는것처럼 부여? */
-body.image::before {
-  z-index: 1;
-  opacity: 1;
-}
+/* body::before 설정 유지 */
 body::before {
   z-index: -1;
   content: "";
@@ -33,70 +37,56 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url("bg.jpg");
-  background-repeat: no-repeat; /* 반복 없음*/
+  background-repeat: no-repeat; /* 반복 없음 */
   background-position: center;
   background-attachment: fixed;
-  background-size: 100% 100%; /* 상하좌우 100$ */
-  padding-bottom: 250px; /* Adjust this to match the footer height */
+  background-size: cover; /* 화면 크기에 맞게 조정 */
 }
 
-.image {
-  margin-left: 200px;
-  opacity: 1;
-  height: 80%;
-  width: 80%;
-  cursor: pointer;
+/* 로고 스타일 */
+.image img {
+  margin-top: 30px;
+  margin-bottom: 20px; /* Adds spacing between logo and form */
+  width: 150px; /* Adjusts logo width on desktop */
+  height: auto;
+  margin-left: 300px; /* Positions the logo partially to the center on desktop */
 }
 
+/* 메인 컨텐츠 스타일 */
+.main-content {
+  flex: 1; /* Allows content to grow to fill the space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+/* 폼 래퍼 스타일 */
 .form-wrapper {
-  position: absolute; /* 다른 ancesotor 없으면 viewport의 포지션에 기반한다 */
-  left: 50%;
-  top: 50%;
-  border-radius: 4px; /* margin 하고 padding 사이의 border의 두께?*/
+  border-radius: 4px;
   padding: 70px;
   width: 450px;
-  transform: translate(
-    -50%,
-    -50%
-  ); /* 중앙에 맞추기 위해서 wrapper 를 위로, 왼쪽으로 그 폭의 50%만큼 옮긴다 */
-  background: rgba(0, 0, 0, 0.75); /* 배경을 약간 불투명한 검은색으로 */
-  min-height: 60vh; /* 최소 높이를 뷰포트의 60%로 */
-  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.75);
 }
 
-.form-wrapper small,
-.form-wrapper p {
-  position: absolute; /* Position the p element */
-  bottom: 15px; /* Adjust as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
-  color: #b3b3b3;
-  width: 80%;
-  text-align: center;
-}
-.form-wrapper small {
-  margin-top: 15px;
-}
-
+/* 폼 내부 스타일 유지 */
 .form-wrapper h2 {
   color: #fff;
-  font-size: 2rem; /*루트 폰트 사이즈 x2; 1rem 이면 1x루트 폰트 사이즈 */
+  font-size: 2rem;
 }
 
 .form-wrapper form {
-  margin: 25px 0 65px; /* 좌우는 여백 없고, 위에 25픽셀 아래에 65픽셀 */
+  margin: 25px 0 65px;
 }
 
 form .form-control {
-  /* form 요소 내부에 있는 .form-control "만" 해당 스타일을 적용한다 */
   height: 50px;
   position: relative;
-  margin-bottom: 16px; /* 마진 밑에 16픽셀 추가 */
+  margin-bottom: 16px;
   background-color: transparent;
 }
 
 .form-control input {
-  /* form-control 내부에서 input을 전부 선택, 밑의 스타일을 입힌다? */
   height: 100%;
   width: 100%;
   background: #33333338;
@@ -107,11 +97,10 @@ form .form-control {
   font-size: 1rem;
   padding: 0 20px;
 }
+
 .signup {
   width: 100%;
   display: block;
-  align-items: flex-end;
-  justify-content: flex-start;
   text-align: center;
 }
 
@@ -134,6 +123,7 @@ form .form-control {
   background: rgba(0, 0, 0, 0.123);
   padding: 16px 20px 0;
 }
+
 .form-control label {
   position: absolute;
   left: 20px;
@@ -144,10 +134,12 @@ form .form-control {
   color: #8c8c8c;
   transition: all 0.1s ease;
 }
+
 .form-control input:is(:focus, :valid) ~ label {
   font-size: 0.75rem;
   transform: translateY(-130%);
 }
+
 form button {
   width: 100%;
   padding: 10px 0;
@@ -189,20 +181,25 @@ form #logincode:hover {
 .form-wrapper a {
   text-decoration: none;
 }
+
 .form-wrapper a:hover {
   text-decoration: underline;
 }
+
 .form-wrapper :where(label, small, a) {
   color: #ffffff;
 }
+
 form .form-help {
   display: flex;
   justify-content: space-between;
 }
+
 form .remember-me {
   display: flex;
   font-size: 16px;
 }
+
 form .remember-me input {
   margin-right: 5px;
   color: #b3b3b3;
@@ -220,19 +217,14 @@ form .remember-me input {
 
 /* Footer */
 footer {
-  position: relative;
-  margin-top: 820px;
-  bottom: 0;
   width: 100%;
-  height: 22rem;
   background: rgba(0, 0, 0, 0.65);
-  padding: 20px 10%;
+  padding: 40px 15%;
   box-sizing: border-box;
-  z-index: 10; /* Ensures it stays on top */
 }
 
 #ftr-content {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 12%;
 }
 
@@ -279,22 +271,57 @@ footer {
   color: #929292;
 }
 
-/* 모바일 환경을 위한 설정 */
+/* 모바일 환경을 위한 설정 가로 768 이하 */
 @media (max-width: 768px) {
-  /* 로고 포지션이랑 크기 조정*/
-  .image {
-    position: absolute;
-    top: 0px;
-    left: 10px;
-    width: 50%; /* 작은 화면에서 가로 길이 반절 */
-    margin: 0; /* 마진 제거 */
+  /* Adjust logo position and size on mobile */
+  .image img {
+    width: 80px; /* Adjusts size on mobile */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 20px; /* Bottom margin */
+    margin-left: 10px; /* Move logo slightly to the left */
+    display: block; /* Ensures it behaves like a block element */
+    cursor: pointer;
   }
 
-  /* Center the main content and adjust padding */
   .form-wrapper {
-    width: 70%;
     padding: 20px;
-    margin-top: 50px; /* 로고 아래 공간 추가 */
+  }
+
+  .form-wrapper h2 {
+    font-size: 1.5rem;
+  }
+  .form-wrapper form {
+    margin: 20px 0 50px;
+  }
+  .form-control input,
+  form button {
+    padding: 8px 0;
+  }
+  form button {
+    font-size: 0.9rem;
+  }
+
+  .ftr {
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start;
+    gap: 8px; /* Increase gap between items */
+  }
+}
+
+/* 가로 769~1024 사이시 모바일 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Adjust logo position and size on mobile */
+  .image img {
+    width: 100px; /* Adjusts size on mobile */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 20px; /* Bottom margin */
+    margin-left: 10px; /* Move logo slightly to the left */
+    display: block; /* Ensures it behaves like a block element */
+    cursor: pointer;
+  }
+
+  .form-wrapper {
+    padding: 20px;
   }
 
   /* 폼 요소 내부 폰트 사이즈랑 크기 조정 */
@@ -315,6 +342,6 @@ footer {
   .ftr {
     flex-direction: column; /* Stack links vertically */
     align-items: flex-start;
-    gap: 12px; /* Increase gap between items */
+    gap: 8px; /* Increase gap between items */
   }
 }
