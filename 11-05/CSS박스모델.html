@@ -14,7 +14,7 @@
         align-items: center;
         gap: 10px;
       }
-      p {
+      .box {
         display: inline-block;
         justify-content: center;
         align-items: center;
@@ -23,14 +23,29 @@
         background-color: orange;
         color: rgb(255, 255, 255);
         font-size: 20px;
-        border: 4px double #000;
+        border: 1px solid #000;
+        box-shadow: 2px 2px 15px 13px orangered;
+      }
+      .box2 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: cadetblue;
+        border-right: 2px solid #000;
+        border-radius: 10px 10px 0px 0px;
+      }
+      .box2:hover {
+        display: block;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <p>박스 모델1</p>
-      <p>박스 모델2</p>
+      <p class="box">박스 모델1</p>
+      <p class="box">박스 모델2</p>
     </div>
+    <p class="box2">asd</p>
+    <p class="box2">asd</p>
+    <p class="box2">asd</p>
   </body>
 </html>
