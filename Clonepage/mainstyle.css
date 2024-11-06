@@ -22,6 +22,21 @@ body {
   color: #fff;
 }
 
+/* 뒤에 흐려진 백그라운드 이미지 추가 */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/Clonepage/images/large.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(16px); /* 필요에 따라 블러 조정*/
+  z-index: -1; /* Place behind content */
+}
+
 .header {
   width: 100vw;
   height: 100vh;
@@ -34,8 +49,116 @@ body {
     url("/Clonepage/images/large.jpg");
   background-size: cover;
   background-position: center;
-  /* padding: 8px 10%;  */
   position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 33%; /* Adjust height as needed */
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: -1;
+}
+
+.headerwrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.header-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px; /* Same border-radius as the main container */
+  padding: 2px; /* Adjust padding to control border thickness */
+  background: linear-gradient(315deg, #000000b4 0%, #e7f3f3 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none; /* Ensure it doesn’t block interaction with content */
+}
+
+.header-content {
+  width: 95%;
+  height: 600px;
+  padding: 28px 38px;
+  border-radius: 20px;
+  border-image-slice: 1;
+  margin: 50px 50px 10px 50px;
+  display: block;
+  justify-content: center;
+  align-content: end;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 40%,
+    /* 밑에서 부터 한 40% 까지 어둡게 처리 */ rgba(0, 0, 0, 0) 100%
+      /* Transparent towards the top */
+  );
+  box-shadow: inset 0px -20px 20px rgba(255, 255, 255, 0.15),
+    /* First shadow layer for strong glow near bottom */ inset 0px -40px 60px 40px
+      rgba(255, 255, 255, 0.1),
+    /* Second shadow layer, softer and spreads higher */ inset 0px -60px 200px 80px
+      rgba(
+        255,
+        255,
+        255,
+        0.05
+      ); /* Third shadow layer for a very soft, high spread */
+  z-index: 1;
+}
+
+.header-content h1 {
+  font-size: 56px;
+}
+h3 {
+  font-size: 20px;
+  color: rgb(173, 173, 173);
+}
+
+.email-signup {
+  display: flex;
+  justify-content: center;
+}
+
+.email-signup input {
+  display: inline-flex;
+  background-color: #00000000;
+  color: white;
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  text-align: left;
+  border: 1px solid white;
+  border-radius: 28px;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  outline: thick, double white;
+  width: 400px;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+
+.email-signup button {
+  background: #ff0000;
+  width: 160px;
+  font-size: 20px;
+  border: 1px solid #666161;
+  border-radius: 28px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  padding: 12px;
 }
 
 nav {
@@ -46,9 +169,11 @@ nav {
 }
 
 .logo {
-  width: 150px; /* Adjusts logo width on desktop */
+  width: 150px;
   height: auto;
   cursor: pointer;
+  scale: 1.1;
+  margin-left: 1.5%;
 }
 
 nav button {
@@ -85,7 +210,7 @@ nav button a {
   border: 1px solid white;
   border-radius: 16px;
   cursor: pointer;
-  margin-right: 0.5rem;
+  margin-right: 0.8rem;
   outline: thick, double white;
   width: 120px;
   box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
@@ -217,23 +342,6 @@ input[type="radio"] {
 
 .ques_accordion input[type="radio"]:checked + label::after {
   transform: rotate(130deg);
-}
-
-.question .email-signup {
-  display: flex;
-  justify-content: center;
-}
-
-.question .email-signup button {
-  background: #ff0000;
-  width: 130px;
-  font-size: 14px;
-  border: 1px solid #666161;
-  border-radius: 20px;
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  padding: 12px 2%;
 }
 
 .question small {

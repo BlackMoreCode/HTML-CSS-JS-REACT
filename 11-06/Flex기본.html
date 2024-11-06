@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 380px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: bisque;
+        border: 1px solid black;
+        justify-content: space-evenly;
+      }
+      .item {
+        width: 50px;
+        height: 50px;
+        margin: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid darkblue;
+        color: white;
+        background-color: orange;
+      }
+      .item:nth-child(2) {
+        background-color: orangered;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 플렉스 박스: 1차원 방식 효과적인 레이아웃을 설계하도록 고안된 방식 -->
+    <div class="container">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+    </div>
+  </body>
+</html>

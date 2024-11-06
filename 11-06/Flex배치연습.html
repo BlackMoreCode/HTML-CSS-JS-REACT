@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        background-color: bisque;
+        flex-wrap: wrap;
+        border: 1px solid black;
+      }
+      header {
+        width: 1200px;
+        height: 60px;
+        background-color: aqua;
+        position: fixed;
+        display: flex;
+        top: 0;
+      }
+      .item {
+        width: 50px;
+        height: 50px;
+        margin: 4px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid darkblue;
+        color: white;
+        background-color: orange;
+      }
+      .item:nth-child(2) {
+        background-color: orangered;
+        flex-grow: 1;
+      }
+      .item .minibox {
+        width: 100%;
+        height: 50%;
+        background-color: blue;
+        color: antiquewhite;
+        display: flex;
+        justify-content: center;
+      }
+      footer {
+        width: 1200px;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        background: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 플렉스 박스: 1차원 방식 효과적인 레이아웃을 설계하도록 고안된 방식 -->
+    <div class="container">
+      <header>
+        <div class="item">item1</div>
+        <div class="item">
+          item2
+          <div class="minibox">menu</div>
+        </div>
+        <div class="item">item3</div>
+      </header>
+      <main></main>
+      <footer></footer>
+    </div>
+  </body>
+</html>
