@@ -22,19 +22,31 @@ body {
   color: #fff;
 }
 
-/* 뒤에 흐려진 백그라운드 이미지 추가 */
 .header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("/Clonepage/images/large.jpg");
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("/Clonepage/images/large.jpg");
   background-size: cover;
   background-position: center;
-  filter: blur(16px); /* 필요에 따라 블러 조정*/
-  z-index: -1; /* Place behind content */
+  filter: blur(16px); /* Apply blur only on this overlay */
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 1) 80%,
+    rgba(255, 255, 255, 0) 100% /* No blur at the very bottom */
+  );
+  pointer-events: none; /* Ensures the overlay does not interfere with content */
 }
 
 .header {
@@ -95,7 +107,7 @@ body {
   padding: 28px 38px;
   border-radius: 20px;
   border-image-slice: 1;
-  margin: 50px 50px 10px 50px;
+  margin: 0px 50px 10px 50px;
   display: block;
   justify-content: center;
   align-content: end;
@@ -104,8 +116,7 @@ body {
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.6) 40%,
-    /* 밑에서 부터 한 40% 까지 어둡게 처리 */ rgba(0, 0, 0, 0) 100%
-      /* Transparent towards the top */
+    rgba(0, 0, 0, 0) 100%
   );
   box-shadow: inset 0px -20px 20px rgba(255, 255, 255, 0.15),
     /* First shadow layer for strong glow near bottom */ inset 0px -40px 60px 40px
@@ -131,6 +142,7 @@ h3 {
 .email-signup {
   display: flex;
   justify-content: center;
+  z-index: 2;
 }
 
 .email-signup input {
@@ -147,6 +159,7 @@ h3 {
   outline: thick, double white;
   width: 400px;
   box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+  z-index: 2;
 }
 
 .email-signup button {
@@ -159,13 +172,14 @@ h3 {
   cursor: pointer;
   color: #fff;
   padding: 12px;
+  z-index: 2;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 10px 30px;
 }
 
 .logo {
@@ -200,6 +214,93 @@ nav button a {
   font-size: 1rem;
 }
 
+nav .language_btn {
+  display: inline-flex;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  text-align: left;
+  border: 1px solid white;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  outline: white;
+  width: 120px;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+nav .language_btn::after {
+  text-align: right;
+  content: "▾";
+  font-size: 1rem;
+  position: relative;
+  margin-left: 18px;
+}
+
+.headerbanner {
+  padding: 10px 12%;
+  text-align: left;
+  font-size: 20px;
+  color: #fff;
+}
+
+.headerbanner .phgrid > div {
+  box-sizing: border-box;
+}
+
+.headerbanner .phgrid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 100px);
+  gap: 10px;
+  grid-template-areas: "phcontent1 phcontent2 phcontent3 phcontent4";
+}
+
+.headerbanner .phgrid #phcontent1 {
+  grid-area: phcontent1;
+  color: white;
+  font-size: 18px;
+  background-color: rgba(99, 99, 99, 0.61);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.headerbanner .phgrid #phcontent2 {
+  grid-area: phcontent2;
+  color: white;
+  font-size: 18px;
+  background-color: rgba(99, 99, 99, 0.61);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.headerbanner .phgrid #phcontent3 {
+  grid-area: phcontent3;
+  color: white;
+  font-size: 18px;
+  background-color: rgba(99, 99, 99, 0.61);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.headerbanner .phgrid #phcontent4 {
+  grid-area: phcontent4;
+  color: white;
+  font-size: 18px;
+  background-color: rgba(99, 99, 99, 0.61);
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
 #language_btn {
   display: inline-flex;
   background-color: #00000000;
@@ -228,43 +329,15 @@ nav button a {
   margin-left: 18px;
 }
 
-nav .language_btn {
-  display: inline-flex;
-  background: var(--primary-color);
-  color: white;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  text-align: left;
-  border: 1px solid white;
-  border-radius: 16px;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  outline: white;
-  width: 120px;
-  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
-}
-nav .language_btn::after {
-  text-align: right;
-  content: "▾";
-  font-size: 1rem;
-  position: relative;
-  margin-left: 18px;
-}
-
 .popular-head {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensures h1 goes left and nav goes right */
-  padding: 20px 30px;
-}
-
-.popular-head h1 {
-  margin-left: 11%;
-}
-
-.popular-head nav {
-  display: flex;
-  gap: 10px; /* Adds space between the select elements */
+  padding: 10px 12%;
+  text-align: left;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 20px;
 }
 
 .img-col img {
@@ -273,17 +346,10 @@ nav .language_btn::after {
   margin: auto;
 }
 
-.features h2 {
-  font-size: 50px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
 .question {
   padding: 10px 12%;
   text-align: left;
   font-size: 20px;
-  border-top: 6px solid #303030;
   color: #fff;
 }
 
@@ -454,34 +520,6 @@ footer {
 
 /* -------------------미디어 쿼리------------------- */
 @media only screen and (min-width: 360px) and (max-width: 720px) {
-  /* .header-content 스타일 수정 */
-  .header-content {
-    position: unset;
-    transform: none;
-    text-align: center;
-    margin-top: 200px;
-  }
-
-  .header-content h1 {
-    font-size: 36px;
-    line-height: 36px;
-    font-weight: 900;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .header-content h3 {
-    font-size: 20px;
-    font-weight: 400;
-    margin: 30px 10px;
-  }
-
-  .header-content p {
-    font-size: 18px;
-    font-weight: 400;
-    margin: 10px 10px;
-  }
-
   /* .logo 스타일 수정 */
   .logo {
     width: 80px;
@@ -535,92 +573,6 @@ footer {
     cursor: pointer;
     color: #fff;
     padding: 20px 20px;
-  }
-
-  /* .features 스타일 수정 */
-  .features {
-    padding: 20px 10%;
-    font-size: 18px;
-  }
-
-  /* .row, .text-col, .img-col, .img-col img 스타일 수정 */
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 0;
-  }
-
-  .text-col,
-  .img-col {
-    flex-basis: 100%;
-    margin-bottom: 20px;
-  }
-
-  .img-col img {
-    width: 100%;
-  }
-
-  .download_container {
-    position: absolute;
-  }
-
-  .download_container img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .download_animation_container {
-    display: grid;
-    grid-template-columns: 4rem 1fr 5rem;
-    /* display: block; */
-    word-wrap: break-word;
-    width: 65%;
-    height: 24%;
-    padding: 1rem;
-    align-items: center;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    border-radius: 1rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 14%;
-    background: black;
-  }
-
-  .download_animation_container .poster {
-    height: 100%;
-  }
-
-  .download_animation_container .download_gif {
-    height: 80%;
-  }
-
-  .download_animation_container .text_container .title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .download_animation_container .text_container .downloading {
-    font-size: 0.8rem;
-    color: #0071eb;
-  }
-
-  .download_animation_container .text_container {
-    padding-left: 2rem;
-  }
-
-  /* .features h2 스타일 수정 */
-  .features h2 {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  /* .features p 스타일 수정 */
-  .features p {
-    font-size: 15px;
-    line-height: 1.5;
   }
 
   /* .question 스타일 수정 */

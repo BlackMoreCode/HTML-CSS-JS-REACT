@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+    }
+    .grid-container {
+      width: 700px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 100px);
+      gap: 4px;
+      grid-template-areas:
+        "header header header header header"
+        "sidebar content content content content"
+        "sidebar content content content content"
+        "sidebar content content content content"
+        "footer footer footer footer footer";
+    }
+    #header {
+      grid-area: header;
+      background-color: orangered;
+    }
+    #sidebar {
+      grid-area: sidebar;
+      background-color: aquamarine;
+    }
+    #content {
+      grid-area: content;
+      background-color: orange;
+      color: white;
+    }
+    #footer {
+      grid-area: footer;
+      background-color: palevioletred;
+    }
+  </style>
+  <body>
+    <div class="grid-container">
+      <div id="header"></div>
+      <div id="sidebar"></div>
+      <div id="content">문제 해결 시도중</div>
+      <div id="footer"></div>
+    </div>
+  </body>
+</html>

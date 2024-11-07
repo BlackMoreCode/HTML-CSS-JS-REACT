@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        background-color: red;
+        transition: all 0.6s ease-in;
+      }
+      .item:hover {
+        /* 오른쪽으로 100px, 아래로 150px */
+        /* transform: translate(100px, 150px);  */
+        /*scale: 확대 혹은 축소 */
+        /* transform: scale(2);  */
+        /*skewX: 기울기*/
+        /* transform: skewX(-30deg); */
+        /*rotate: 회전 */
+        transform: rotate(180deg);
+        transform-origin: top left;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>
