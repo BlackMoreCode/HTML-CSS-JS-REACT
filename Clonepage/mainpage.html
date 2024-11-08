@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Netflix Mainpage</title>
     <link rel="stylesheet" href="/Clonepage/mainstyle.css" />
+    <script src="/Clonepage/script.js"></script>
   </head>
   <body>
     <div class="header">
@@ -32,9 +33,23 @@
       </div>
       <form class="email-signup">
         <input type="email" placeholder="이메일 주소" required />
+        <label>이메일 주소</label>
         <button type="submit">시작하기</button>
       </form>
-      <div class="popular-head">
+      <br>
+      <br>
+      <div class="ads">
+        <div class="adsdetail">
+          <div class="adssection1">
+            <h2>5,500원이면 만날 수 있는 넷플릭스.</h2>
+          <p>몇 개의 중간 광고와 함께 요금도 절약하고 넷플릭스도 즐겨보세요.</p>
+          </div>
+          <a href="https://www.netflix.com/kr/ads-plan">자세히 알아보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="trending-now">
+      <div class="abovesc">
         <h1>지금 뜨는 컨텐츠</h1>
         <nav>
           <div>
@@ -51,12 +66,26 @@
           </div>
         </nav>
       </div>
-    </div>
-
+      <div class="scroll-container">
+          <button class="scroll-button left" onclick="scroll1()">&#10094;</button>
+          <div class="show-cards">
+              <div class="show-card" style="background-image: url('/Clonepage/images/전\,란.webp');"><div class="number-overlay">1</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/그대들은\ 어떻게\ 살\ 것인가.webp');"><div class="number-overlay">2</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/더\ 문.webp');"><div class="number-overlay">3</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/무도설무관.webp');"><div class="number-overlay">4</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/소년들.webp');"><div class="number-overlay">5</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/쿵푸팬더4.webp');"><div class="number-overlay">6</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/탈출.webp');"><div class="number-overlay">7</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/커브.webp');"><div class="number-overlay">8</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/섀도우의13.webp');"><div class="number-overlay">9</div></div>
+              <div class="show-card" style="background-image: url('/Clonepage/images/익스펜더블4.webp');"><div class="number-overlay">10</div></div>
+          </div>
+          <button class="scroll-button right" onclick="scroll2()">&#10095;</button>
+      </div>
+  </div>
     <!-- 여기까지 헤더 및 배너 -->
 
     <div class="headerbanner">
-      
       <h1>가입해야 하는 또 다른 이유</h1>
         <div class="phgrid">
           <div id="phcontent1">취향에 딱 맞는 이야기</div>

@@ -41,7 +41,7 @@ body {
   filter: blur(16px); /* Apply blur only on this overlay */
   mask-image: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 1) 0%,
+
     rgba(255, 255, 255, 0) 20%,
     rgba(255, 255, 255, 1) 80%,
     rgba(255, 255, 255, 0) 100% /* No blur at the very bottom */
@@ -152,7 +152,7 @@ h3 {
   padding: 0.4rem 0.7rem;
   font-size: 1rem;
   text-align: left;
-  border: 1px solid white;
+  border: 1px solid rgb(183, 183, 183);
   border-radius: 28px;
   cursor: pointer;
   margin-right: 0.8rem;
@@ -160,6 +160,23 @@ h3 {
   width: 400px;
   box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
   z-index: 2;
+  transition: all 0.1s ease-in;
+}
+
+.email-signup input:is(:focus, :valid) {
+  background: rgba(0, 0, 0, 0.123);
+  padding: 10px 5px 20px 0;
+}
+
+.email-signup label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  color: #8c8c8c;
+  transition: all 0.1s ease;
 }
 
 .email-signup button {
@@ -179,11 +196,11 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 45px 20px;
 }
 
 .logo {
-  width: 150px;
+  width: 120px;
   height: auto;
   cursor: pointer;
   scale: 1.1;
@@ -235,6 +252,123 @@ nav .language_btn::after {
   font-size: 1rem;
   position: relative;
   margin-left: 18px;
+}
+
+.ads {
+  position: relative;
+  padding: 10px 12%;
+  text-align: left;
+  border-radius: 24px;
+}
+
+.ads .adsdetail {
+  border: 1px solid rgba(128, 128, 128, 0.373);
+  background-color: rgba(128, 128, 128, 0.373);
+  border-radius: 24px;
+  padding: 15px 15px 15px;
+  line-height: 1.4;
+  transition: all 0.3s ease-in;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.ads .adsdetail:hover {
+  background-color: rgba(128, 128, 128, 0.658);
+  transition: all 0.3s ease-in;
+  scale: 1.05;
+}
+
+.ads .adsdetail a {
+  border: 1px solid rgba(128, 128, 128, 0.373);
+  background-color: rgba(0, 0, 0, 0.511);
+  border-radius: 24px;
+  padding: 10px 10px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.ads .adsdetail p {
+  color: gray;
+}
+
+.trending-now {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.scroll-container {
+  display: flex;
+  padding: 30px 12% 0px; /* Adjust padding as necessary */
+  align-items: center;
+  position: relative;
+}
+
+.show-cards {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  gap: 30px;
+  padding: 20px; /* Padding on the container, may affect scroll area */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  width: 100%; /* Ensure the container fills its parent */
+}
+
+/* Hide scrollbar in Webkit browsers (Chrome, Safari, etc.) */
+.show-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.show-card {
+  min-width: 150px;
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  flex-shrink: 0; /* Prevent the cards from shrinking */
+}
+
+.show-card:first-child {
+  margin-left: -20px; /* Offset the first card to the left */
+}
+
+.number-overlay {
+  position: absolute;
+  top: 25px; /* Adjust top positioning as needed */
+  left: 0; /* Align to the left edge */
+  color: black; /* Color of the number */
+  font-size: 72px; /* Adjust the font size */
+  font-weight: bold;
+  text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white,
+    -2px 2px 0px white; /* White outline effect */
+  transform: translateX(-50%); /* Shift the number left by 50% of its width */
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
 }
 
 .headerbanner {
@@ -329,7 +463,7 @@ nav .language_btn::after {
   margin-left: 18px;
 }
 
-.popular-head {
+.abovesc {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Ensures h1 goes left and nav goes right */
@@ -338,6 +472,7 @@ nav .language_btn::after {
   font-size: 20px;
   color: #fff;
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 .img-col img {
@@ -508,9 +643,6 @@ input[type="radio"] {
   color: #b1afaf;
 }
 
-/* ------ FOOTER ------- */
-
-/* Footer */
 footer {
   width: 100%;
   background: rgba(0, 0, 0, 0.65);
@@ -518,168 +650,385 @@ footer {
   box-sizing: border-box;
 }
 
+.abovesc,
+.scroll-container,
+.ads {
+  margin-bottom: 50px; /* Adjust the value as needed */
+}
+
 /* -------------------미디어 쿼리------------------- */
-@media only screen and (min-width: 360px) and (max-width: 720px) {
-  /* .logo 스타일 수정 */
-  .logo {
-    width: 80px;
-  }
-
-  /* nav button 스타일 수정 */
-  nav button {
-    display: inline-block;
-    padding: 0px 4px;
+@media (max-width: 1024px) {
+  body {
     font-size: 12px;
-    width: 25vw;
-    height: 10vw;
   }
 
-  /* nav .language_btn 스타일 수정 */
-  nav .language_btn {
-    padding: 0px 4px;
-    font-size: 12px;
-    width: 26vw;
-    height: 10vw;
-    text-align: center;
-    display: inline-block;
-  }
-
-  /* .email-signup 스타일 수정 */
-  .email-signup {
-    border: 2px solid #666161;
-    border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
-    margin-top: 30px;
-    width: 94%;
-    overflow: hidden;
-  }
-
-  .email-signup input {
-    flex: 1;
-    border: 0;
-    outline: 0;
-    margin: 20px;
-    background: none;
-    font-size: 18px;
-    color: rgb(255, 255, 255);
-  }
-
-  .email-signup button {
-    background: #ff0000;
-    border: 0;
-    font-size: 12px;
-    width: 99%;
-    cursor: pointer;
-    color: #fff;
-    padding: 20px 20px;
-  }
-
-  /* .question 스타일 수정 */
-  .question {
-    padding: 10px 10%;
+  h1 {
     font-size: 20px;
   }
 
-  /* .question h2 스타일 수정 */
-  .question h2 {
-    font-size: 30px;
-    font-weight: 500;
+  h3 {
+    font-size: 16px;
   }
 
-  /* .ques_accordion 스타일 수정 */
+  .header-content {
+    padding: 15px;
+    height: 400px;
+  }
+
+  .header-content h1 {
+    font-size: 32px;
+  }
+
+  .header-content h3 {
+    font-size: 16px;
+  }
+
+  .email-signup input {
+    width: 300px;
+    font-size: 0.8rem;
+  }
+
+  .email-signup button {
+    font-size: 12px;
+    width: 120px;
+    padding: 8px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav button {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .trending-now .show-card {
+    min-width: 100px;
+    height: 180px;
+  }
+
+  .trending-now h1 {
+    font-size: 20px;
+  }
+
+  .trending-now .abovesc {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .trending-now .scroll-container {
+    padding: 0px 12% 0px;
+  }
+
+  #language_btn {
+    font-size: 12px;
+  }
+
+  .ads .adsdetail .adssection1 {
+    font-size: 12px;
+  }
+
+  .headerbanner h1 {
+    font-size: 24px;
+  }
+
+  .headerbanner .phgrid {
+    grid-template-columns: 1fr;
+    display: inline-flex;
+    margin-top: 20px;
+  }
+
+  .headerbanner .phgrid #phcontent1 {
+    font-size: 16px;
+  }
+
+  .headerbanner .phgrid #phcontent2 {
+    font-size: 16px;
+  }
+
+  .headerbanner .phgrid #phcontent3 {
+    font-size: 16px;
+  }
+
+  .headerbanner .phgrid #phcontent4 {
+    font-size: 16px;
+  }
+
+  .ads .adsdetail {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
   .ques_accordion {
     margin: 20px auto;
-    max-width: 100%;
   }
 
-  .ques_accordion li {
-    list-style: none;
-    width: 100%;
-    padding: 10px;
+  .question h1 {
+    font-size: 24px;
   }
 
-  .ques_accordion li label {
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    padding: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    background: #303030;
-    margin-bottom: 4px;
+  .question h2 {
+    font-size: 24px;
   }
 
-  label::after {
-    content: "+";
-    font-size: 22px;
-    position: absolute;
-    right: 22px;
-    transition: transform 0.5s;
-  }
-
-  input[type="radio"] {
-    display: none;
-  }
-
-  .ques_accordion .ques_content {
-    background: #303030;
-    text-align: left;
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s, padding 0.4s;
-  }
-
-  .ques_accordion input[type="radio"]:checked + label + .ques_content {
-    max-height: 600px;
-    padding: 30px 20px;
-  }
-
-  .ques_accordion input[type="radio"]:checked + label::after {
-    transform: rotate(130deg);
-  }
-
-  /* .netflix_footer 스타일 수정 */
-  .netflix_footer {
-    padding: 20px 10px;
-    border-top: 6px solid #303030;
-    color: #777;
+  .question small {
+    font-size: 12px;
   }
 
   .netflix_footer h2 {
+    font-size: 16px;
+  }
+
+  .netflix_footer .row table td {
+    padding: 5px 20px;
     font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 20px;
   }
+}
 
-  .netflix_footer .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .netflix_footer .col {
-    flex-basis: 50%;
-    flex-grow: 1;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-  .question .email-signup input {
-    flex: 1;
-    border: 0;
-    outline: 0;
-    margin: 10px;
-    padding: 5px;
-    font-size: 14px;
-  }
-
-  .question .email-signup button {
-    background: #db0001;
-    border: 0;
+@media (max-width: 720px) {
+  body {
     font-size: 12px;
-    cursor: pointer;
-    color: #fff;
-    padding: 20px 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .header-content {
+    padding: 15px;
+    margin: 0px 10px 30px;
+    height: 400px;
+  }
+
+  .header-content h1 {
+    font-size: 32px;
+  }
+
+  .header-content h3 {
+    font-size: 16px;
+  }
+
+  .email-signup input {
+    width: 250px;
+    font-size: 0.8rem;
+  }
+
+  .email-signup button {
+    font-size: 12px;
+    width: 120px;
+    padding: 8px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav button {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .trending-now .show-card {
+    min-width: 100px;
+    height: 180px;
+  }
+
+  .trending-now h1 {
+    font-size: 12px;
+  }
+
+  .trending-now .abovesc {
+    font-size: 12px;
+  }
+
+  #language_btn {
+    font-size: 12px;
+  }
+
+  .ads .adsdetail .adssection1 {
+    font-size: 12px;
+  }
+
+  .headerbanner h1 {
+    font-size: 20px;
+  }
+
+  .headerbanner .phgrid {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    display: inline;
+  }
+
+  .headerbanner .phgrid #phcontent1 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent2 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent3 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent4 {
+    font-size: 12px;
+  }
+
+  .ads .adsdetail {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .ques_accordion {
+    margin: 20px auto;
+  }
+
+  .question h1 {
+    font-size: 28px;
+  }
+
+  .question h2 {
+    font-size: 24px;
+  }
+
+  .question small {
+    font-size: 12px;
+  }
+
+  .netflix_footer h2 {
+    font-size: 16px;
+  }
+
+  .netflix_footer .row table td {
+    padding: 5px 20px;
+    font-size: 12px;
+  }
+}
+
+/* For screens up to 480px wide */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .header-content {
+    padding: 15px;
+    margin: 0px 10px 30px;
+    height: 400px;
+  }
+
+  .header-content h1 {
+    font-size: 32px;
+  }
+
+  .header-content h3 {
+    font-size: 16px;
+  }
+
+  .email-signup input {
+    width: 75%;
+    font-size: 0.8rem;
+  }
+
+  .email-signup button {
+    font-size: 12px;
+    width: 120px;
+    padding: 8px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav button {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .trending-now .show-card {
+    min-width: 100px;
+    height: 180px;
+  }
+
+  .trending-now h1 {
+    font-size: 12px;
+  }
+
+  #language_btn {
+    font-size: 12px;
+  }
+
+  .ads .adsdetail .adssection1 {
+    font-size: 12px;
+  }
+
+  .headerbanner h1 {
+    font-size: 20px;
+  }
+
+  .headerbanner .phgrid {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    display: inline;
+  }
+
+  .headerbanner .phgrid #phcontent1 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent2 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent3 {
+    font-size: 12px;
+  }
+
+  .headerbanner .phgrid #phcontent4 {
+    font-size: 12px;
+  }
+
+  .ads .adsdetail {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .ques_accordion {
+    margin: 20px auto;
+  }
+
+  .question h1 {
+    font-size: 28px;
+  }
+
+  .question h2 {
+    font-size: 24px;
+  }
+
+  .question small {
+    font-size: 12px;
+  }
+
+  .netflix_footer h2 {
+    font-size: 16px;
+  }
+
+  .netflix_footer .row table td {
+    padding: 5px 20px;
+    font-size: 12px;
   }
 }
