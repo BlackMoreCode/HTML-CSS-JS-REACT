@@ -51,7 +51,6 @@ body {
 
 .header {
   width: 100vw;
-  height: 100vh;
   background-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8),
@@ -103,11 +102,11 @@ body {
 
 .header-content {
   width: 95%;
-  height: 600px;
+  height: 400px;
   padding: 28px 38px;
   border-radius: 20px;
   border-image-slice: 1;
-  margin: 0px 50px 10px 50px;
+  margin: 0px 190px 10px 190px;
   display: block;
   justify-content: center;
   align-content: end;
@@ -472,7 +471,6 @@ nav .language_btn::after {
   font-size: 20px;
   color: #fff;
   margin-top: 20px;
-  margin-bottom: 100px;
 }
 
 .img-col img {
@@ -650,12 +648,6 @@ footer {
   box-sizing: border-box;
 }
 
-.abovesc,
-.scroll-container,
-.ads {
-  margin-bottom: 50px; /* Adjust the value as needed */
-}
-
 /* -------------------미디어 쿼리------------------- */
 @media (max-width: 1024px) {
   body {
@@ -673,6 +665,7 @@ footer {
   .header-content {
     padding: 15px;
     height: 400px;
+    margin: 0px 50px 10px 50px;
   }
 
   .header-content h1 {
@@ -801,7 +794,6 @@ footer {
 
   .header-content {
     padding: 15px;
-    margin: 0px 10px 30px;
     height: 400px;
   }
 
