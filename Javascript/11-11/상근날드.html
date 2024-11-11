@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상근날드 가성비 세트 가격</title>
+    <style>
+      .container {
+        width: 520px;
+        border: 1px solid black;
+        padding: 20px 40px;
+        margin: 20px auto;
+        background-image: url("/Javascript/ham2.png");
+      }
+      body {
+        margin: 0;
+      }
+      .price-input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <legend>상근날드 가성비 세트 가격</legend>
+        <div class="price-input">
+          <label for="burger1">버거 1 가격:</label>
+          <input type="number" id="burger1" min="0" /> 원
+        </div>
+        <div class="price-input">
+          <label for="burger2">버거 2 가격:</label>
+          <input type="number" id="burger2" min="0" /> 원
+        </div>
+        <div class="price-input">
+          <label for="burger3">버거 3 가격:</label>
+          <input type="number" id="burger3" min="0" /> 원
+        </div>
+        <div class="price-input">
+          <label for="drink1">음료 1 가격:</label>
+          <input type="number" id="drink1" min="0" /> 원
+        </div>
+        <div class="price-input">
+          <label for="drink2">음료 2 가격:</label>
+          <input type="number" id="drink2" min="0" /> 원
+        </div>
+        <button onclick="calculateSetPrice()">세트 가격 계산</button>
+        <p id="result"></p>
+      </fieldset>
+    </div>
+
+    <script src="./상근날드.js"></script>
+  </body>
+</html>
