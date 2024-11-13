@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="menu">메뉴</div>
+    <script>
+      // 노드 추가
+      const ul = document.createElement("ul");
+      const li1 = document.createElement("li");
+      const li2 = document.createElement("li");
+      const li3 = document.createElement("li");
+      const li4 = document.createElement("li");
+      const li5 = document.createElement("li");
+
+      li1.innerText = "탄탄면";
+      li2.innerText = "볶음밥";
+      li3.innerText = "교자";
+      li4.innerText = "갈비";
+      li5.innerText = "음료";
+
+      ul.appendChild(li1);
+      ul.appendChild(li2);
+      ul.appendChild(li3);
+      ul.appendChild(li4);
+      ul.appendChild(li5);
+
+      const menu = document.querySelector("#menu");
+      menu.appendChild(ul);
+    </script>
+  </body>
+</html>

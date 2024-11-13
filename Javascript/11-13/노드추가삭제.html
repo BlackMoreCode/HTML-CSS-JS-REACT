@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      부모 입니다.
+      <div id="child">자식 입니다.</div>
+    </div>
+    <button onclick="removeC()">자식 제거하기</button>
+    <script>
+      // 노드 추가
+      const aEl = document.createElement("a");
+      document.body.appendChild(aEl);
+      aEl.innerText = "a 태그를 추가합니다.";
+
+      // 삭제 관련
+      function removeC() {
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+        parent.removeChild(child);
+        child.remove();
+      }
+    </script>
+  </body>
+</html>

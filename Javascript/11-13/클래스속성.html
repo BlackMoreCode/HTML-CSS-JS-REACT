@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .styled-text {
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="default">JS입니다.</p>
+    <button id="addStyle">Add Style</button>
+    <button id="removeStyle">Remove Style</button>
+    <button id="toggleStyle">Toggle Style</button>
+    <script>
+      const el = document.querySelector("p");
+      const add = document.getElementById("addStyle");
+      const remove = document.getElementById("removeStyle");
+      const toggle = document.getElementById("toggleStyle");
+      add.addEventListener("click", () => {
+        el.classList.add("styled-text");
+      });
+      remove.addEventListener("click", () => {
+        el.classList.remove("styled-text");
+      });
+      toggle.addEventListener("click", () => {
+        el.classList.toggle("styled-text");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        margin: 50px auto;
+        background-color: burlywood;
+        border-radius: 50%;
+        border: 1px solid black;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .fontstyle {
+        font-size: 1.5rem;
+        color: steelblue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>학원 수료</h2>
+      <p><span class="fontstyle" id="calc"></span>일 남았습니다.</p>
+    </div>
+    <script>
+      const completionDate = new Date("2025/03/24/18:00:00");
+      const currentDate = new Date();
+
+      const now = currentDate.getTime();
+      const dDay = completionDate.getTime();
+
+      const remainingDays = Math.round((dDay - now) / (1000 * 60 * 60 * 24));
+      console.log(remainingDays);
+
+      document.querySelector("#calc").innerText = remainingDays;
+    </script>
+  </body>
+</html>

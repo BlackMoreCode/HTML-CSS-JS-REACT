@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box-1">
+      <p class="text">text-1</p>
+      <p class="text">text-2</p>
+      <p class="text">text-3</p>
+    </div>
+    <div class="box-2">
+      <p class="text">text-4</p>
+      <p class="text">text-5</p>
+      <p class="text">text-6</p>
+    </div>
+    <p id="title">Hello, <span style="display: none">JavaScript</span></p>
+    <script>
+      //querySelector("CSS 선택자")
+      // const el = document.querySelector(".box-1");
+      const el = document.querySelector(".box-2 .text:nth-of-type(3)");
+      el.style.fontSize = "2em";
+      el.style.color = "red";
+      el.innerHTML = "해당 태그의 내용을 변경합니다.";
+
+      const title1 = document.getElementById("title").textContent; // display 옵션과 상관 없이 텍스트 컨텐츠 다 보임
+      const title2 = document.getElementById("title").innerText; // display 영향 받고, 텍스트 내용만.
+      const title3 = document.getElementById("title").innerHTML; // 선택된 id의 HTML 전부 다 보임.
+      console.log(title1);
+      console.log(title2);
+      console.log(title3);
+    </script>
+  </body>
+</html>
