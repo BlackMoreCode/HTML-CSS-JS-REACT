@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+      button {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        border: 1px solid #ccc;
+        font-size: 0.8em;
+        cursor: pointer;
+      }
+      .detailLoc {
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+      }
+      .detail {
+        width: 400px;
+        text-align: left;
+        line-height: 1.5;
+        overflow: hidden;
+        max-height: 0; /* 애니메이션을 위해 초기값 0 으로 설정 */
+        transition: max-height 0.5s ease; /* 0.5동안 애니메이션 */
+      }
+      .detail.open {
+        max-height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img src="/Javascript/잇지.jpeg" alt="" width="400px" />
+      <button class="detailLoc" id="open" onclick="openDetail()">
+        상세 설명 보기
+      </button>
+      <div id="desc" class="detail">
+        <h4>그룹 잇지</h4>
+        <p>
+          팀명 'ITZY'는 '너희가 원하는 거 전부 있지? 있지!' 라는 뜻을 가지고
+          있으며, 정식 한글 표기법은 있지이다. 혹 영어명인 'ITZY'로만 들어본
+          사람들이 한글로는 어떻게 적는지 몰라 '잇지'라고 부르는 경우도 꽤 많이
+          있는데, '있지'라고 불러야 한다며 정정해주는 것이 팬덤 잇지에게는
+          일상이 되었다.
+        </p>
+        <button class="closeDetail" onclick="closeDetail()">
+          상세 설명 닫기
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const desc = document.querySelector("#desc");
+      const openButton = document.querySelector("#open");
+
+      function openDetail() {
+        openButton.style.display = "none";
+        desc.classList.add("open"); // open 클래스 추가로 애니메이션 트리거
+      }
+
+      function closeDetail() {
+        desc.classList.remove("open"); // open 클래스 제거로 사라지게하기.
+        setTimeout(() => {
+          openButton.style.display = "block";
+        }, 500); // setTimeout 비동기 함수 이용해서 제거.
+      }
+    </script>
+  </body>
+</html>

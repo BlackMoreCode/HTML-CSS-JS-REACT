@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myElement">
+      메인
+      <div class="myElements">1번 요소</div>
+      <div class="myElements">2번 요소</div>
+      <div class="myElements">3번 요소</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      //기존 방식
+      // const el = document.querySelector("#myElement");
+      // console.log(el.innerHTML);
+      // const els = document.querySelectorAll(".myElements");
+      // console.log(els);
+
+      //jQuery 방식
+      const $el = $("#myElement");
+      const $els = $(".myElements");
+      console.log($el.text());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: orange;
+      }
+      button {
+        font-size: 18px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 4px;
+        box-shadow: 2px 4px 6px black;
+        transition: transform 0.1s, box-shadow 0.1s, color 0.1s, border 0.1s;
+      }
+      button:active {
+        transform: translateX(2px) translateY(2px);
+        color: #aaa;
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button id="colorBtn">Change Background Color</button>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        // 자바스크립트로 했을 시
+        // const colorBtn = document.getElementById("colorBtn");
+        // const colors = [
+        //   "red",
+        //   "orange",
+        //   "yellow",
+        //   "green",
+        //   "blue",
+        //   "navy",
+        //   "purple",
+        // ];
+        // let idx = 0;
+        // colorBtn.addEventListener("click", () => {
+        //   document.getElementById("container").style.backgroundColor =
+        //     colors[idx];
+        //   idx = (idx + 1) % colors.length;
+        // });
+
+        //jQuery 이용시
+        $(document).ready(function () {
+          let colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+          let colorIndex = 0;
+
+          $("#colorBtn").click(function () {
+            $("#container").css("background-color", colors[colorIndex]);
+            colorIndex = (colorIndex + 1) % colors.length;
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
