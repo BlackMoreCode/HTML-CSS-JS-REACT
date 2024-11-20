@@ -12,6 +12,10 @@ import EventPractice from "./EventPractice";
 import DropDownComponent from "./DropDownComponent";
 import RadioButton from "./RadioButton";
 import TableMap from "./TableMap";
+import UserList from "./UserList";
+import TodoList from "./TodoList";
+import USPrac from "./USPrac";
+import InfoEffect from "./InfoEffect";
 
 const productInfo = {
   date: "2024-09-01",
@@ -26,6 +30,10 @@ function App() {
       <EventPractice></EventPractice>
       <RadioButton></RadioButton>
       <TableMap></TableMap>
+      <UserList></UserList>
+      <TodoList></TodoList>
+      <USPrac></USPrac>
+      <InfoEffect></InfoEffect>
     </>
   );
 }
