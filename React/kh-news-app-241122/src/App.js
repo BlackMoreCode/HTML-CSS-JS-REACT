@@ -25,7 +25,7 @@
 
 // export default App;
 
-import News from "./pages/news";
+import News from "./pages/News";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { Container, StyledInput, StyledButton } from "../styles/CommonStyle";
+import { UserContext } from "../context/UserStore";
 
 const Login = () => {
   //키보드 입력에 대한 상태 관리
@@ -14,8 +15,13 @@ const Login = () => {
   const navigate = useNavigate(); // 페이지 이동을 위한 객체 생성
   const btnRef = useRef(null);
 
+  //useContext 훅으로 우리가 만든 UserContext의 전역 상태값에 접근
+  const context = useContext(UserContext);
+  const { setUserId, setPassword, color } = context;
+
   const onChangeId = (e) => {
     setInputId(e.target.value);
+    setUserId(e.target.value);
     e.target.value.length >= 5 ? setIsId(true) : setIsId(false);
   };
 
@@ -27,6 +33,8 @@ const Login = () => {
   const onClickLogin = () => {
     // axios 비동기 통신 호출
     // 그리고 결과 수신. 현재 예시는 서버 통신이 없으니 다르게..
+    setUserId(inputId);
+    setPassword(inputPw);
     if (inputId === "doch9" && inputPw === "aaaa11") {
       navigate("/home");
     } else {

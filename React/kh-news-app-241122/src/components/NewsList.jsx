@@ -16,14 +16,15 @@ const NewsListBlock = styled.div`
   }
 `;
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
   const [articles, setArticles] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const query = category === "all" ? "all" : `category=${category}`;
         const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=us&apiKey=3c00fd60d124498f93c5546bad7cb91f"
+          `https://newsapi.org/v2/top-headlines?country=us&${query}&apiKey=3c00fd60d124498f93c5546bad7cb91f`
         );
         setArticles(response.data.articles);
       } catch (e) {
@@ -31,7 +32,7 @@ const NewsList = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [category]); // 의존성 배열이 비어 있으면 mount 시점 (즉, 컴포넌트가 렌더링 이후)에 호출
 
   return (
     <NewsListBlock>
