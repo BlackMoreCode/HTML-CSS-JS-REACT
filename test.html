@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Codewars</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div>
+        <h1><%= problem.title %></h1>
+        <div class="problems_info">
+          <p>문제 난이도: <%= problem.difficulty_level %></p>
+          <p>정답자 수: <%= problem.completed_users %>명</p>
+        </div>
+        <div>
+          <p>문제 설명: <%= problem.description %></p>
+        </div>
+        <form action="/problems/<%= problem._id %>/submit" method="post">
+          <textarea
+            id="code"
+            name="code"
+            placeholder="function solution(n) { // TODO: Code Here... }"
+          ></textarea>
+          <button type="submit">답안 제출</button>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script>
+    CodeMirror.fromTextArea(document.getElementById("code"), {
+      lineNumbers: true,
+      theme: "dracula",
+      mode: "javascript",
+    });
+  </script>
+</html>

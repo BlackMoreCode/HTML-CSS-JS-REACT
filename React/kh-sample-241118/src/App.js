@@ -16,6 +16,10 @@ import UserList from "./UserList";
 import TodoList from "./TodoList";
 import USPrac from "./USPrac";
 import InfoEffect from "./InfoEffect";
+import ReducerCnt from "./ReducerState";
+import Average from "./Average";
+import CreateRef from "./RefEx1";
+import MaintainInnerValue from "./RefEx2";
 
 const productInfo = {
   date: "2024-09-01",
@@ -34,6 +38,10 @@ function App() {
       <TodoList></TodoList>
       <USPrac></USPrac>
       <InfoEffect></InfoEffect>
+      <ReducerCnt></ReducerCnt>
+      <Average></Average>
+      <CreateRef></CreateRef>
+      <MaintainInnerValue></MaintainInnerValue>
     </>
   );
 }
