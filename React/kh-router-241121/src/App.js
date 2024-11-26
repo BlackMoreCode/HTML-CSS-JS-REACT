@@ -12,6 +12,8 @@ import Layout from "./styles/Layout";
 import UserStore from "./context/UserStore";
 import Setting from "./pages/Setting";
 import ImageUploader from "./pages/ImageUploader";
+import MaterialEx from "./pages/MaterialEx";
+import CardExample from "./pages/CardEx";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               <Route path="/article/:id" element={<Article />} />
               <Route path="/setting" element={<Setting />} />
               <Route path="/firebase" element={<ImageUploader />} />
+              <Route path="/material" element={<MaterialEx />} />
+              <Route path="/card" element={<CardExample />} />
             </Route>
           </Routes>
         </Router>
