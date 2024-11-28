@@ -28,6 +28,12 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + `/auth/signup`, member);
   },
+
+  //전체 회원 조회
+  memberList: async () => {
+    //바디 영역 만들 필요가 없어서 바로 return
+    return await axios.get(KH_DOMAIN + "/members");
+  },
 };
 
 export default AxiosApi;

@@ -6,6 +6,7 @@ import imgLogo from "../../images/bonk-it.jpg";
 import { Container, Items } from "../../components/SignupComponents";
 import Button from "../../components/ButtonComponents";
 import Input from "../../components/InputComponents";
+import Modal from "../../utils/Modal";
 
 const Img = styled.img`
   width: 500px;
@@ -17,11 +18,27 @@ const Login = () => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPw, setInputPw] = useState("");
 
+  // 모달창을 열고 닫기
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // 모달창에 대한 문구
+  const [modalContents, setModalContents] = useState("");
+
   const navigate = useNavigate();
 
   // 유효성 검사
   const [isId, setIsId] = useState("");
   const [isPw, setIsPw] = useState("");
+
+  //모달 창을 닫는 함수
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  //모달창 confirm 동작 함수
+  const confirmModal = () => {
+    console.log("Confirm 버튼이 눌려졌습니다.");
+  };
 
   // 5~ 20자리의 영문자, 숫자, 언더스코어(_)로 이루어진 문자열이 유효한 아이디 형식인지 검사하는 정규표현식
   const onChangeEmail = (e) => {
@@ -41,10 +58,14 @@ const Login = () => {
       if (rsp.data) {
         navigate("/home");
       } else {
-        alert("아이디 및 패스워드가 틀립니다.");
+        // alert("아이디 및 패스워드가 틀립니다.");
+        setModalOpen(true);
+        setModalContents("아이디 또는 패스워드가 일치하지 않습니다.");
       }
     } catch (e) {
-      alert("서버가 응답하지 않습니다.");
+      // alert("서버가 응답하지 않습니다.");
+      setModalOpen(true);
+      setModalContents("아이디 또는 패스워드가 일치하지 않습니다.");
     }
   };
 
@@ -81,6 +102,15 @@ const Login = () => {
           <span>Sign Up</span>
         </Link>
       </Items>
+      <Modal
+        open={modalOpen}
+        close={closeModal}
+        header="오류"
+        type={true}
+        confirm={confirmModal}
+      >
+        {modalContents}
+      </Modal>
     </Container>
   );
 };
