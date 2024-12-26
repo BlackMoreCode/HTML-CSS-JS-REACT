@@ -8,7 +8,7 @@ const AxiosApi = {
     console.log("비밀번호 : ", pw);
     const login = {
       email: email,
-      password: pw,
+      pwd: pw,
     };
     return await axios.post(KH_DOMAIN + "/auth/login", login);
   },
@@ -23,8 +23,9 @@ const AxiosApi = {
     console.log("이름 : ", name);
     const member = {
       email: email,
-      password: pw,
+      pwd: pw,
       name: name,
+      imgPath: "",
     };
     return await axios.post(KH_DOMAIN + `/auth/signup`, member);
   },
@@ -32,7 +33,12 @@ const AxiosApi = {
   //전체 회원 조회
   memberList: async () => {
     //바디 영역 만들 필요가 없어서 바로 return
-    return await axios.get(KH_DOMAIN + "/members");
+    return await axios.get(KH_DOMAIN + "/member/list");
+  },
+
+  //개별 회원 조회
+  memberInfo: async (email) => {
+    return await axios.get(KH_DOMAIN + `/member/${email}`);
   },
 };
 
