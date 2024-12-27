@@ -11,6 +11,7 @@ import {
   StyledMenuItem,
   MenuIcon,
   StyledLink,
+  Dummy,
 } from "../styles/LayoutStyle";
 import { GiCancel, GiHamburgerMenu } from "react-icons/gi";
 import { FiSettings } from "react-icons/fi";
@@ -79,7 +80,7 @@ const Layout = () => {
             { icon: <FaRegNewspaper />, label: "News", to: "/News" },
             { icon: <CgProfile />, label: "Members", to: "/Members" },
             { icon: <BiCameraMovie />, label: "Movies", to: "/Movies" },
-            { icon: <LuListTodo />, label: "ToDos", to: "/ToDos" },
+            { icon: <LuListTodo />, label: "Chat", to: "/Chat" },
           ].map((item, index) => (
             <StyledMenuItem key={index}>
               <MenuIcon>{item.icon}</MenuIcon>

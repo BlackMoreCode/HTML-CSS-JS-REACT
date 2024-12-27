@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../../components/InputComponents";
-import Button from "../../components/ButtonComponents";
-import { Container, Items } from "../../components/SignupComponents";
+import Input from "../../components/InputComponent";
+import Button from "../../components/ButtonComponent";
+import { Container, Items } from "../../components/SignupComponent";
 import AxiosApi from "../../api/AxiosApi";
 
 const Signup = () => {
@@ -92,7 +92,7 @@ const Signup = () => {
         alert("회원 가입에 실패 했습니다.");
       }
     } catch (e) {
-      alert("서버가 응답하지 않습니다 : ", e);
+      alert("서버가 응답하지 않습니다");
     }
   };
 

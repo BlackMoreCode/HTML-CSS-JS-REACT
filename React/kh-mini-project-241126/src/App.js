@@ -1,11 +1,14 @@
 import "./App.css";
+import GlobalStyle from "./styles/GlobalStyle";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserStore from "./context/UserStore";
-import GlobalStyle from "./styles/GlobalStyle";
 import Login from "./pages/signup/Login";
 import Signup from "./pages/signup/Signup";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
+import ChatList from "./pages/Chatting/ChatList";
+import ChatRoomCreate from "./pages/Chatting/ChatRoomCreate";
+import Chatting from "./pages/Chatting/Chatting";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route element={<Layout />}>
               <Route path="/home" element={<Home />} />
+              <Route path="/chat" element={<ChatList />} />
+              <Route path="/chat-create" element={<ChatRoomCreate />} />
+              <Route path="/chatting/:roomId" element={<Chatting />} />
             </Route>
           </Routes>
         </Router>

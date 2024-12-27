@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AxiosApi from "../api/AxiosApi";
-import { Axios } from "axios";
 
 const Home = () => {
-  const [members, setMembers] = useState(null);
+  const [members, setMembers] = useState("");
 
   useEffect(() => {
     const getMembers = async () => {
@@ -14,7 +13,7 @@ const Home = () => {
         console.log(rsp.data);
         setMembers(rsp.data);
       } catch (e) {
-        alert("서버가 응답하지 않습니다", e);
+        alert("서버가 응답하지 않습니다. ", e);
       }
     };
     getMembers();
