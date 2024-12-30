@@ -42,7 +42,7 @@ const AxiosApi = {
   },
   // 채팅방 목록 가져오기
   chatList: async () => {
-    return await axios.get(KH_DOMAIN + `/chat/list`);
+    return await AxiosInstance.get(`/chat/list`);
   },
   // 채팅방 생성하기
   chatCreate: async (email, name) => {
@@ -51,11 +51,11 @@ const AxiosApi = {
       email: email,
       name: name,
     };
-    return await axios.post(KH_DOMAIN + `/chat/new`, chat);
+    return await AxiosInstance.post(`/chat/new`, chat);
   },
   // 채팅방 정보 가져 오기
   chatDetail: async (roomId) => {
-    return await axios.get(KH_DOMAIN + `/chat/room/${roomId}`);
+    return await AxiosInstance.get(`/chat/room/${roomId}`);
   },
 };
 
