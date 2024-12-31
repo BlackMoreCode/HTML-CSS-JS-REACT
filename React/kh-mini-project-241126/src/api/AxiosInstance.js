@@ -8,7 +8,8 @@ const AxiosInstance = axios.create({
 // 토큰을 매번 실어줘야하기때문에
 // 공통된 루틴으로 집어넣는다 -->
 AxiosInstance.interceptors.request.use(
-  // 요청 인터셉터 추가
+  // 요청 인터셉터 추가 --> 인터셉터를 사용하면 then 또는 catch로 처리되기 전에 요청과 응답을 가로챌수 있다.
+  // 언제 쓰는가: API 요청마다 해줘야 하는 반복적인 작업이 있을 때(예: 헤더에 토큰 싣기); 에러 관리를 한 곳에서 하고 싶을 때
   async (config) => {
     const accessToken = Commons.getAccessToken(); // accessToken이 있다면..
     config.headers.Authorization = `Bearer ${accessToken}`; // 요청 헤더에 이 방식대로 달아준다. 이게 표준 방식중 하나.
